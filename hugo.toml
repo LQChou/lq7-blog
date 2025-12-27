@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://lq7.tw/"
 languageCode = "zh-tw"
 title = "LQ7 | 寫作與故事"
 theme = "PaperMod"
