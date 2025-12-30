@@ -1,6 +1,6 @@
 baseURL = "https://lq7.tw/"
 languageCode = "zh-tw"
-title = "LQ7 | 寫作與故事"
+title = "LQ7 | 以創作和思考探索世界"
 theme = "PaperMod"
 
 [params]
@@ -13,24 +13,37 @@ theme = "PaperMod"
   ShowCodeCopyButtons = true
   disableSpecial1stPost = true
 
+  [params.homeInfoParams]
+    Title = "LQ7 | 以創作和思考探索世界"
+    Content = "關於寫作、音樂、魔術與生活思考"
+
 [menu]
   [[menu.main]]
-    name = "創作"
-    url = "/fiction/"
+    name = "二創小說"
+    url = "/fanfic/"
     weight = 10
+
   [[menu.main]]
-    name = "創作筆記"
-    url = "/notes/"
+    name = "寫作習慣"
+    url = "/writing/"
     weight = 20
+
   [[menu.main]]
-    name = "閱讀筆記"
+    name = "閱讀心得"
     url = "/reading/"
     weight = 30
+
   [[menu.main]]
-    name = "生活側記"
-    url = "/journal/"
+    name = "生活思考"
+    url = "/thinking/"
     weight = 40
+
   [[menu.main]]
-    name = "About"
-    url = "/about/"
+    name = "心情隨筆"
+    url = "/mood/"
     weight = 50
+
+  [[menu.main]]
+    name = "關於我"
+    url = "/about/"
+    weight = 60
