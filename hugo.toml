@@ -14,8 +14,16 @@ theme = "PaperMod"
   disableSpecial1stPost = true
 
   [params.homeInfoParams]
-    Title = "LQ7 | 以創作和思考探索世界"
-    Content = "關於寫作、音樂、魔術與生活思考"
+    Title = "LQ7 在此向您打招呼！"
+	Content = """
+大家好，我是LQ7，本職為資訊工程師，同時也是個自由創作者，喜愛各種形式的藝術創作。
+
+這裡有我的小說作品，以及我的日常興趣——  
+包括寫作、音樂、動漫、遊戲、運動、魔術與哲學等主題上的心得與思考。
+
+如果當中任何感興趣的內容，歡迎隨意逛逛。  
+有任何感想都可以填寫[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)，期待收到您的回饋！
+"""
 
 [menu]
   [[menu.main]]

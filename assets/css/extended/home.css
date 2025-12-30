@@ -1,0 +1,25 @@
+/* 讓整站內容區加寬（PaperMod 常見容器：.main） */
+.main{
+  max-width: 980px;
+}
+
+/* 有些版本會用 .page-header / .post-content 等容器，順便一起加寬 */
+.page-header,
+.post-content,
+.first-entry,
+.home-info{
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 放大首頁 homeInfo 的內文字級與行距 */
+.home-info .entry-content{
+  font-size: 1.3rem;
+  line-height: 1.9;
+}
+
+/* 讓首頁段落不要看起來擠 */
+.home-info .entry-content p{
+  margin: 0.6em 0;
+}
