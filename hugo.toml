@@ -7,18 +7,18 @@ theme = "PaperMod"
   author = "LQ7"
   defaultTheme = "auto"
   ShowReadingTime = true
-  ShowShareButtons = true
+  ShowShareButtons = false
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true
+  ShowBreadCrumbs = false
   ShowCodeCopyButtons = true
   disableSpecial1stPost = true
 
   [params.homeInfoParams]
     Title = "LQ7 在此向您打招呼！"
-	Content = """
-大家好，我是LQ7，本職為資訊工程師，同時也是個自由創作者，喜愛各種形式的藝術創作。
+    Content = """
+大家好，我是LQ7，本職為資訊工程師，同時也是個自由創作者，喜愛各種形式的藝術表演與創作。
 
-這裡有我的小說作品，以及我的日常興趣——  
+這裡有我的小說作品，以及我的日常興趣，  
 包括寫作、音樂、動漫、遊戲、運動、魔術與哲學等主題上的心得與思考。
 
 如有任何感興趣的內容請隨意逛逛，  
