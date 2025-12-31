@@ -1,0 +1,2 @@
+# 一律用 LF，避免跨平台問題
+* text=auto eol=lf
