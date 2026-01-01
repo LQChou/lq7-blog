@@ -46,6 +46,10 @@ timeZone = "Asia/Taipei"
     name = "二創小說"
     url = "/fanfic/"
     weight = 10
+  [[menu.main]]
+    name = "活動相關"
+    url = "/event/"
+    weight = 15
 
   [[menu.main]]
     name = "寫作習慣"

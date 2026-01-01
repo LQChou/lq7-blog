@@ -1,0 +1,58 @@
+{{- $id := .Get "id" | default (printf "carousel-%d" now.UnixNano) -}}
+{{- $height := .Get "height" | default "420px" -}}
+{{- $fit := .Get "fit" | default "contain" -}}
+{{- $class := .Get "class" | default "" -}}
+<div class="lq-carousel {{ $class }}" id="{{ $id }}">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {{- range .Params -}}
+      <div class="swiper-slide">
+        <img src="{{ $.Page.Permalink }}{{ . }}" alt="" loading="lazy">
+      </div>
+      {{- end -}}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+<style>
+  #{{ $id }} { margin: 1rem 0; }
+  #{{ $id }} .swiper { width: 100%; height: {{ $height }}; }
+  #{{ $id }} .swiper-slide { display:flex; align-items:center; justify-content:center; }
+  #{{ $id }} img { width: 100%; height: 100%; object-fit: {{ $fit }}; }
+</style>
+<script>
+  (function() {
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        if ([...document.scripts].some(s => s.src && s.src.includes(src))) return resolve();
+        const s = document.createElement('script');
+        s.src = src; s.onload = resolve; s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
+    function loadCSS(href) {
+      if ([...document.styleSheets].some(ss => ss.href && ss.href.includes(href))) return;
+      const l = document.createElement('link');
+      l.rel = 'stylesheet'; l.href = href;
+      document.head.appendChild(l);
+    }
+    loadCSS('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+    loadScript('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js')
+      .then(() => {
+        new Swiper('#{{ $id }} .swiper', {
+          loop: true,
+          navigation: {
+            nextEl: '#{{ $id }} .swiper-button-next',
+            prevEl: '#{{ $id }} .swiper-button-prev'
+          },
+          pagination: {
+            el: '#{{ $id }} .swiper-pagination',
+            clickable: true
+          }
+        });
+      })
+      .catch(() => console.warn('Swiper 載入失敗'));
+  })();
+</script>
