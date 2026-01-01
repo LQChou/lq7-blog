@@ -19,11 +19,11 @@ title: ""
 
 　　碩士畢業後第一份工作是~~非常反骨的~~木吉他教師，在音樂教室工作了快兩年，但最終~~被現實擊垮後~~回來當了工程師。興趣當飯吃這件事情讓我有很深刻的體悟，有空再找機會細說。
 
-　　雖然聽得音樂很雜，從[蕭邦](https://zh.wikipedia.org/zh-tw/%E5%BC%97%E9%9B%B7%E5%BE%B7%E9%87%8C%E5%85%8B%C2%B7%E8%82%96%E9%82%A6)到[林家謙](https://zh.wikipedia.org/zh-tw/%E6%9E%97%E5%AE%B6%E8%AC%99)到 [My Chemical Romance](https://zh.wikipedia.org/zh-tw/%E6%88%91%E7%9A%84%E5%8F%A6%E9%A1%9E%E7%BE%85%E6%9B%BC%E5%8F%B2) 到 [Galneryus](https://www.galneryus.jp/) 到 [Official髭男dism](https://higedan.com/?lang=zh-tw)，但真要說還是以日系音樂為大宗，人生大部分的音樂演出也是日系音樂 Cover，有一個還在佛系活動的「刮租」木吉他彈唱團體，參加過大大小小的音樂演出，2025 年底久違和樂團朋友一起做了 full band 演出，非常開心。
+　　雖然聽的音樂很雜，從[蕭邦](https://zh.wikipedia.org/zh-tw/%E5%BC%97%E9%9B%B7%E5%BE%B7%E9%87%8C%E5%85%8B%C2%B7%E8%82%96%E9%82%A6)到[林家謙](https://zh.wikipedia.org/zh-tw/%E6%9E%97%E5%AE%B6%E8%AC%99)到 [My Chemical Romance](https://zh.wikipedia.org/zh-tw/%E6%88%91%E7%9A%84%E5%8F%A6%E9%A1%9E%E7%BE%85%E6%9B%BC%E5%8F%B2) 到 [Galneryus](https://www.galneryus.jp/) 到 [Official髭男dism](https://higedan.com/?lang=zh-tw)，但真要說還是以日系音樂為大宗，人生大部分的音樂演出也是日系音樂 Cover，有一個還在佛系活動的「刮租」木吉他彈唱團體，參加過大大小小的音樂演出，2025 年底久違和樂團朋友一起做了 full band 演出，非常開心。
 
 ### 魔術
 
-　　雖然在職業魔術師前只敢自稱「魔術愛好者」，但在「[麻瓜](https://zh.wikipedia.org/zh-tw/%E9%BA%BB%E7%93%9C)」面前我通常會大方承認我是個魔術師。2018年作為觀眾參加過[魔術界的奧運 FISM](https://zh.wikipedia.org/zh-tw/FISM)，以及各式的魔術活動，最近一場是 [2025 TMA 魔術大會](https://tmagic.info/2025/)。老闆最喜歡這種人了，每到尾牙就會想起公司內有位「魔術師」可以表演節目，於是我將鈔票一張變兩張，變進橘子內，變去老闆的口袋……尾牙大家都愛鈔票魔術，不是嗎？
+　　雖然在職業魔術師前我只會自稱「魔術愛好者」，但在「[麻瓜](https://zh.wikipedia.org/zh-tw/%E9%BA%BB%E7%93%9C)」面前我通常會大方承認我是個魔術師。2018年作為觀眾參加過[魔術界的奧運 FISM](https://zh.wikipedia.org/zh-tw/FISM)，以及各式的魔術活動，最近一場是 [2025 TMA 魔術大會](https://tmagic.info/2025/)。也曾受邀至各大活動(如Twitch Party)表演近距離魔術，但最常表演的場合還是公司尾牙。老闆最喜歡這種人了，每到年底就會想起公司內有位「魔術師」可以表演節目，於是我將鈔票一張變兩張，變進橘子內，變去老闆的口袋……尾牙大家都愛鈔票魔術，不是嗎？
 
 ### 遊戲
 
@@ -41,13 +41,13 @@ title: ""
 
 　　結果一時興起查了後發現，才沒有消失（只是從我的演算法消失）！而且還持續地在寫 [Blog](https://wiwi.blog/)，真是太失禮了。
 
-　　真正的最後一根稻草，是看到這兩篇文章「[為什麼我不用社群媒體了？](https://wiwi.blog/docs/wisdom/why-i-dont-use-social-media/)」以及「[又五個離開社群媒體的理由](https://wiwi.blog/blog/five-more-reasons/)」，心有戚戚焉的同時毅然決定加入[拯救世界](https://blogblog.club/about)的行列。打得這麼煽情只是想讓老師知道[http://blogblog.club/](http://blogblog.club/) ~~並不是徒勞無功，~~至少吸引到我來寫了，謝謝老師。
+　　真正的最後一根稻草，是看到這兩篇文章「[為什麼我不用社群媒體了？](https://wiwi.blog/docs/wisdom/why-i-dont-use-social-media/)」以及「[又五個離開社群媒體的理由](https://wiwi.blog/blog/five-more-reasons/)」，心有戚戚焉的同時毅然決定加入[拯救世界](https://blogblog.club/about)的行列。打得這麼煽情只是想讓老師知道[部落部落俱樂部](http://blogblog.club/)並不是徒勞無功，至少吸引到我來寫了，謝謝老師。
 
 ## 未來會做什麼
 
 　　明年預計會寫兩本題材已經確定的小說，一本二創，一本原創。雖然計畫不見得趕得上變化，但我會加油。
 
-　　同時我也在計畫新型態的藝術創作體驗，想在動漫同人場次上不只是賣同人小說，而是只有「現場」才做得到的體驗。這件事雖然在計畫階段就有許多可見的困難之處，因此容我先不透漏太多~~這樣萬一搞不定還可以當沒這回事~~，還請各位期待一下。
+　　同時我也在計畫新型態的藝術創作體驗，想在動漫同人場次上不只是賣同人小說，而是只有「現場」才做得到的體驗。這件事雖然在計畫階段就有許多可見的困難之處，因此容我先不透漏太多，~~這樣萬一搞不定還可以當沒這回事~~同樣會努力。
 
 　　最後當然是希望能好好經營這個 Blog，不以點閱或流量為優先，而是能讓自己更專注和自己的作品對話。
 
