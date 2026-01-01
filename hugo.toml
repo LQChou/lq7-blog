@@ -18,7 +18,7 @@ timeZone = "Asia/Taipei"
   ShowBreadCrumbs = false
   ShowCodeCopyButtons = true
   disableSpecial1stPost = true
-  rssFullText = true
+  ShowFullTextinRSS = true
   mainSections = ["fanfic", "writing", "reading", "thinking", "mood"]
 
   [params.homeInfoParams]
