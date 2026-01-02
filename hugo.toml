@@ -35,7 +35,7 @@ timeZone = "Asia/Taipei"
     Content = """
 大家好，我是LQ7，本職為資訊工程師，同時也是個自由創作者，喜愛各種形式的藝術表演與創作。
 
-這裡有我的小說作品，以及我的日常興趣：包括寫作、音樂、動漫、遊戲、哲學、魔術與運動等主題上的心得與思考。
+這裡有我的小說作品，以及我的日常興趣：包括寫作、音樂、動漫、哲學、魔術、遊戲與運動等主題上的心得與思考。
 
 如有任何感興趣的內容請隨意逛逛，也可以透過 [RSS 訂閱](https://lq7.tw/index.xml) 追蹤本站更新。
 
@@ -74,6 +74,11 @@ timeZone = "Asia/Taipei"
     name = "心情隨筆"
     url = "/mood/"
     weight = 50
+	
+  [[menu.main]]
+    name = "留言板"
+    url = "/guestbook/"
+    weight = 55
 
   [[menu.main]]
     name = "關於我"
