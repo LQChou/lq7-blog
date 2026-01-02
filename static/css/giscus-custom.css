@@ -1,151 +1,147 @@
 /* 極簡 giscus 主題 - 搭配 PaperMod Dark */
 
+/* 強制全域顏色 */
+* {
+  color: #e0e0e0 !important;
+}
+
 /* 基底背景 */
-main, .gsc-main {
-  background: #1d1e20;
-  color: #e0e0e0;
+body, main, .gsc-main {
+  background: #1d1e20 !important;
 }
 
 /* 隱藏反應區 */
 .gsc-reactions {
-  display: none;
+  display: none !important;
 }
 
-/* 隱藏 header（x則留言 - 由 giscus 技術支援）*/
+/* 隱藏 header */
 .gsc-comments > .gsc-header {
-  display: none;
+  display: none !important;
 }
 
-/* 留言輸入區 */
+/* 留言輸入框外框 */
 .gsc-comment-box {
-  background: #1d1e20;
-  border: 1px solid #444;
-  border-radius: 8px;
+  background: #1d1e20 !important;
+  border: 1px solid #555 !important;
+  border-radius: 8px !important;
+}
+
+.gsc-comment-box:hover {
+  border-color: #666 !important;
 }
 
 .gsc-comment-box-tabs {
-  background: #1d1e20;
-  border-bottom: 1px solid #444;
-}
-
-.gsc-comment-box-tab {
-  color: #888;
-}
-
-.gsc-comment-box-tab:hover {
-  color: #e0e0e0;
+  background: #1d1e20 !important;
+  border-bottom: 1px solid #444 !important;
 }
 
 /* 輸入框 */
-.gsc-comment-box-textarea {
-  background: #2a2a2a;
-  border: 1px solid #444;
-  color: #e0e0e0;
+.gsc-comment-box-textarea,
+textarea {
+  background: #2a2a2a !important;
+  border: 1px solid #555 !important;
+  color: #e0e0e0 !important;
+  border-radius: 6px !important;
 }
 
-.gsc-comment-box-textarea::placeholder {
-  color: #666;
+textarea:hover {
+  border-color: #666 !important;
+}
+
+textarea:focus {
+  border-color: #888 !important;
+  outline: none !important;
 }
 
 .gsc-comment-box-bottom {
-  background: #1d1e20;
-  border-top: 1px solid #444;
+  background: #1d1e20 !important;
+  border-top: 1px solid #444 !important;
 }
 
-/* 送出按鈕 */
-.gsc-comment-box-buttons button,
-.btn-primary {
-  background: #444;
-  border: none;
-  color: #e0e0e0;
-  border-radius: 6px;
+/* 按鈕 */
+button, .btn, .btn-primary {
+  background: #444 !important;
+  border: 1px solid #555 !important;
+  color: #e0e0e0 !important;
+  border-radius: 6px !important;
 }
 
-.gsc-comment-box-buttons button:hover,
-.btn-primary:hover {
-  background: #555;
+button:hover, .btn:hover {
+  background: #555 !important;
 }
 
-/* 留言列表 */
+/* 留言區塊 */
 .gsc-comment {
-  background: #1d1e20;
-  border: 1px solid #444;
-  border-radius: 8px;
-  margin-bottom: 12px;
+  background: #1d1e20 !important;
+  border: 1px solid #555 !important;
+  border-radius: 8px !important;
 }
 
-.gsc-comment-header {
-  color: #888;
+.gsc-comment:hover {
+  border-color: #666 !important;
 }
 
-.gsc-comment-author-link {
-  color: #e0e0e0;
-}
-
-.gsc-comment-content,
-.gsc-comment-content p {
-  color: #ccc;
-}
-
-/* 回覆區 */
+/* 回覆輸入框 */
 .gsc-reply-box {
-  background: #1d1e20;
-  border-top: 1px solid #444;
+  background: #1d1e20 !important;
+  border-top: 1px solid #444 !important;
 }
 
-.gsc-reply-box input {
-  background: #2a2a2a;
-  border: 1px solid #444;
-  color: #e0e0e0;
+.gsc-reply-box textarea,
+.gsc-reply-box input,
+input {
+  background: #2a2a2a !important;
+  border: 1px solid #555 !important;
+  color: #e0e0e0 !important;
+  border-radius: 6px !important;
 }
 
-/* 時間戳記 */
-.gsc-comment-header time,
-.color-fg-muted {
-  color: #888 !important;
+input:hover {
+  border-color: #666 !important;
 }
 
-/* 連結 */
-a {
-  color: #888;
+input:focus {
+  border-color: #888 !important;
+  outline: none !important;
 }
 
-a:hover {
-  color: #e0e0e0;
-}
-
-/* 標籤（所有者等）*/
+/* 標籤 */
 .Label {
-  background: #333;
-  color: #888;
-  border: 1px solid #444;
+  background: #333 !important;
+  color: #ccc !important;
+  border: 1px solid #444 !important;
 }
 
 /* 排序按鈕 */
 .BtnGroup-item {
-  background: #2a2a2a;
-  border-color: #444;
-  color: #888;
+  background: #2a2a2a !important;
+  border-color: #444 !important;
+  color: #ccc !important;
 }
 
 .BtnGroup-item:hover,
 .BtnGroup-item[aria-selected="true"] {
-  background: #444;
-  color: #e0e0e0;
+  background: #444 !important;
+  color: #e0e0e0 !important;
 }
 
-/* 登出連結 */
-.link-secondary {
-  color: #888 !important;
+/* 連結 */
+a {
+  color: #aaa !important;
+}
+
+a:hover {
+  color: #fff !important;
 }
 
 /* 表情按鈕 */
 .gsc-direct-reaction-button {
-  background: #2a2a2a;
-  border-color: #444;
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
 }
 
-/* Markdown 提示 */
-.text-sm {
-  color: #666 !important;
+.gsc-direct-reaction-button:hover {
+  background: #333 !important;
+  border-color: #555 !important;
 }
