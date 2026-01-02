@@ -4,9 +4,9 @@ date: 2026-01-02
 layout: "page"
 ---
 
-如果你想對我說些什麼，可以使用使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)或[寫信給我](mailto:lpseven@gmail.com)
+如果想對我說些什麼，歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)或[寫信給我](mailto:lpseven@gmail.com)
 
-但我完全能理解留言顯示在別人網站上的樂趣，所以也在這邊開了一個留言板，歡迎在此留下您的足跡 XD（需要 GitHub 帳號登入）
+但我完全能理解留言顯示在別人網站上的樂趣，所以這裡弄了一個~~簡陋的~~留言板，歡迎隨意留言（需要 GitHub 帳號登入），如果我們有共同興趣，也歡迎交個朋友 XD
 
 <script src="https://giscus.app/client.js"
         data-repo="LQChou/guestbook"
