@@ -4,6 +4,10 @@ defaultContentLanguage = "zh-tw"
 title = "LQ7的創作與想像"
 theme = "PaperMod"
 timeZone = "Asia/Taipei"
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
 [markup.goldmark.renderer]
   unsafe = true
 [pagination]
@@ -11,7 +15,7 @@ timeZone = "Asia/Taipei"
 
 [params]
   author = "LQ7"
-  defaultTheme = "auto"
+  defaultTheme = "dark"
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
