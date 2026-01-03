@@ -39,7 +39,7 @@ timeZone = "Asia/Taipei"
 
 如有任何感興趣的內容請隨意逛逛，也可以透過 [RSS 訂閱](https://lq7.tw/index.xml) 追蹤本站更新。
 
-有任何感想歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)告訴我或者[寫信給我](mailto:lpseven@gmail.com)，期待收到您的回饋！
+有任何感想歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)或者[寫信給我](mailto:lpseven@gmail.com)，期待收到您的回饋！
 """
 [params.footer]
   hidePoweredBy = true
