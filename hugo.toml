@@ -24,6 +24,7 @@ timeZone = "Asia/Taipei"
   disableSpecial1stPost = true
   ShowFullTextinRSS = true
   mainSections = ["fanfic", "writing", "reading", "thinking", "mood"]
+  defaultImage = "https://lq7.tw/images/default-banner.png"
   
   [params.label]
   text = "LQ7的創作與想像"
