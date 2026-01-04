@@ -1,0 +1,67 @@
+/* --- 全站列表優化版 --- */
+
+.archive-year {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--tertiary);
+  padding-bottom: 5px;
+}
+
+.archive-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-item {
+  display: flex;
+  align-items: baseline;
+  padding: 8px 0;
+  gap: 25px; /* 增加間距取代原本的連字號與橫線 */
+  border-bottom: none; /* 移除欄位與欄位之間的橫線 */
+  transition: background 0.2s ease;
+}
+
+.archive-item:hover {
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+
+.archive-date {
+  flex: 0 0 55px;
+  font-family: var(--code-font-family);
+  font-size: 0.9em;
+  color: var(--secondary);
+}
+
+.archive-title {
+  flex: 0 0 260px; /* 根據標題平均長度調整 */
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.archive-excerpt {
+  flex: 1;
+  font-size: 14px;
+  color: var(--secondary);
+  opacity: 0.6; /* 讓摘要色調變淡，突出標題 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 響應式：小螢幕適配 */
+@media screen and (max-width: 600px) {
+  .archive-item {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .archive-excerpt {
+    flex: 0 0 100%;
+    padding-left: 55px;
+    font-size: 13px;
+  }
+}

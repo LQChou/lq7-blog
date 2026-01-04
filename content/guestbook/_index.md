@@ -26,6 +26,8 @@ layout: "page"
 <style>
 #guestbook {
   max-width: 100%;
+  /* 讓留言板文字顏色跟隨主題 */
+  color: var(--content);
 }
 
 #guestbook-form {
@@ -42,26 +44,30 @@ layout: "page"
   flex: 1;
 }
 
+/* 修改輸入框顏色，使其適應明暗模式 */
 #guestbook input,
 #guestbook textarea {
   width: 100%;
   padding: 10px;
-  background: #2a2a2a;
-  border: 1px solid #555;
+  /* 使用主題背景色變數 */
+  background: var(--code-bg); 
+  /* 使用主題邊框變數 */
+  border: 1px solid var(--tertiary);
   border-radius: 6px;
-  color: #e0e0e0;
+  /* 使用主題主要文字變數 */
+  color: var(--primary);
   font-size: 1rem;
   box-sizing: border-box;
 }
 
 #guestbook input:hover,
 #guestbook textarea:hover {
-  border-color: #666;
+  border-color: var(--secondary);
 }
 
 #guestbook input:focus,
 #guestbook textarea:focus {
-  border-color: #888;
+  border-color: var(--primary);
   outline: none;
 }
 
@@ -70,18 +76,20 @@ layout: "page"
   margin-bottom: 1rem;
 }
 
+/* 修改按鈕顏色 */
 #submit-btn {
-  background: #444;
-  border: 1px solid #555;
-  color: #e0e0e0;
+  background: var(--tertiary);
+  border: 1px solid var(--tertiary);
+  color: var(--primary);
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
+  transition: all 0.2s ease;
 }
 
 #submit-btn:hover {
-  background: #555;
+  background: var(--secondary);
 }
 
 #submit-btn:disabled {
@@ -91,42 +99,43 @@ layout: "page"
 
 #form-status {
   margin-top: 0.5rem;
-  color: #888;
+  color: var(--secondary);
 }
 
 #guestbook hr {
   border: none;
-  border-top: 1px solid #444;
+  border-top: 1px solid var(--tertiary);
   margin: 2rem 0;
 }
 
+/* 修改留言卡片背景 */
 .comment {
-  background: #1d1e20;
-  border: 1px solid #555;
+  background: var(--code-bg);
+  border: 1px solid var(--tertiary);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
 }
 
 .comment:hover {
-  border-color: #666;
+  border-color: var(--secondary);
 }
 
 .comment-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-  color: #888;
+  color: var(--secondary);
   font-size: 0.9rem;
 }
 
 .comment-name {
-  color: #e0e0e0;
+  color: var(--primary);
   font-weight: bold;
 }
 
 .comment-name a {
-  color: #e0e0e0;
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -135,28 +144,29 @@ layout: "page"
 }
 
 .comment-message {
-  color: #ccc;
+  color: var(--primary);
+  opacity: 0.9;
   line-height: 1.6;
 }
 
 .comment-reply {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #444;
+  border-top: 1px solid var(--tertiary);
 }
 
 .reply-header {
-  color: #888;
+  color: var(--secondary);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
 .reply-content {
-  color: #aaa;
+  color: var(--secondary);
 }
 
 #comments-loading {
-  color: #888;
+  color: var(--secondary);
 }
 </style>
 

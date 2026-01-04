@@ -48,31 +48,35 @@ timeZone = "Asia/Taipei"
 
 [menu]
   [[menu.main]]
-    name = "二創小說"
+    name = "全部"
+    url = "/list/"
+    weight = 5
+  [[menu.main]]
+    name = "小說"
     url = "/fanfic/"
     weight = 10
   [[menu.main]]
-    name = "活動相關"
+    name = "活動"
     url = "/event/"
     weight = 15
 
   [[menu.main]]
-    name = "寫作習慣"
+    name = "寫作"
     url = "/writing/"
     weight = 20
 
   [[menu.main]]
-    name = "閱讀心得"
+    name = "閱讀"
     url = "/reading/"
     weight = 30
 
   [[menu.main]]
-    name = "生活思考"
+    name = "思考"
     url = "/thinking/"
     weight = 40
 
   [[menu.main]]
-    name = "心情隨筆"
+    name = "心情"
     url = "/mood/"
     weight = 50
 	
