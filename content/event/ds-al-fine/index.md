@@ -2,6 +2,7 @@
 title: "《D.S al Fine》網路通販開始"
 date: 2026-01-01T18:20:00+08:00
 description: "這是我第三本愛音x爽世的同人小說，我改了一下當初的宣傳文變為通販宣傳，喜歡的朋友可以參考看看"
+tags: ["活動"]
 ---
 
 {{< carousel "a.png" "b.png" "c.png" "d.png" "e.png" "f.png" "g.png" >}}

@@ -1,6 +1,7 @@
 ---
 title: "新年快樂"
 date: 2026-01-01
+tags: ["心情"]
 ---
 
 <div style="text-align: center;">

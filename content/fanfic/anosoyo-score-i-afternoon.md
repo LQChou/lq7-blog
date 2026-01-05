@@ -4,7 +4,7 @@ date: 2025-02-14
 description: "這是收錄於我的同人小說《ANOSOYO SCORE》內的第二篇作品，也是我2025年初第一次在網路上發表的二創。有別於 pixiv 的初版，此網站收錄的是最終印刷版（此網站的福利），文字經過相當程度的潤飾與調整，但同樣保留了當時發表在pixiv上的序，希望各位會喜歡。"
 series: ["ANOSOYO SCORE"]
 series_order: 2
-tags: ["MyGO", "愛音×爽世"]
+tags: ["二創小說","MyGO", "愛音×爽世"]
 ---
 # 序
 

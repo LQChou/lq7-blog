@@ -1,6 +1,7 @@
 ---
 title: "做一個留言板"
 date: 2026-01-03T20:59:00+08:00
+tags: ["心情","技術"]
 ---
 
 　　起因是看到[資工小廢物JN](https://blog.giveanornot.com/)裡面的留言板[誰來我家](https://blog.giveanornot.com/guestbook/)，覺得讓 Blog 有一個大家可以留下足跡的地方也是不錯（自古以來留言板就有一種魔力），所以就開始 survey 留言板要怎麼搞。我的需求和 JN 差不多：
