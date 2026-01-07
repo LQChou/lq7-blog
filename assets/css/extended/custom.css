@@ -1,0 +1,13 @@
+/* Blockquote 樣式 */
+.post-content blockquote {
+  background: #2a2a2a;
+  border-left: 4px solid #555;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.post-content blockquote p {
+  margin: 0;
+  color: #ccc;
+}

@@ -24,7 +24,7 @@ hasCJKLanguage = true
   ShowCodeCopyButtons = true
   disableSpecial1stPost = true
   ShowFullTextinRSS = true
-  mainSections = ["fanfic", "writing", "reading", "thinking", "mood"]
+  mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event"]
   defaultImage = "https://lq7.tw/images/default-banner.png"
   
   [params.label]
@@ -56,10 +56,6 @@ hasCJKLanguage = true
     name = "小說"
     url = "/fanfic/"
     weight = 10
-  [[menu.main]]
-    name = "活動"
-    url = "/event/"
-    weight = 15
 
   [[menu.main]]
     name = "寫作"
@@ -80,6 +76,15 @@ hasCJKLanguage = true
     name = "心情"
     url = "/mood/"
     weight = 50
+	
+  [[menu.main]]
+    name = "活動"
+    url = "/event/"
+    weight = 53
+  [[menu.main]]
+    name = "技術"
+    url = "/tech/"
+    weight = 54
 	
   [[menu.main]]
     name = "留言板"
