@@ -3,8 +3,9 @@ title: "魔術師費這麼大的力氣，就為了這點無聊小事？"
 date: 2026-01-07T00:10:00+08:00
 tags: ["思考","魔術"]
 cover:
-	images: "image.png"
-	relative: true
+  image: "image.png"
+  relative: true
+  hidden: true
 ---
 
 ## 序

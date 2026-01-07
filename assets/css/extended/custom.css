@@ -11,3 +11,23 @@
   margin: 0;
   color: #ccc;
 }
+
+/* 調整文章內的封面圖大小與對齊 */
+.post-single .post-thumbnail img {
+    width: 350px;        /* 您可以調整喜歡的寬度，例如 300px 或 400px */
+    height: auto;        /* 保持比例 */
+    margin-left: 0;      /* 強制靠左 */
+    margin-right: auto;  /* 確保右側留白 */
+    display: block;      /* 確保它自己佔一行，不被文字環繞 */
+    border-radius: 8px;  /* 選擇性：加點圓角比較好看 */
+    margin-top: 10px;    /* 與上方標題的間距 */
+    margin-bottom: 20px; /* 與下方內容的間距 */
+}
+
+/* 讓手機版圖片自動恢復寬度，避免在小螢幕太窄 */
+@media screen and (max-width: 768px) {
+    .post-single .post-thumbnail img {
+        width: 100%;
+        max-width: 100%;
+    }
+}

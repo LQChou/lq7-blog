@@ -3,8 +3,9 @@ title: "LQ7"
 date: 2026-01-03T12:20:00+08:00
 tags: ["心情"]
 cover:
-	images: "image.png"
-	relative: true
+  image: "image.png"
+  relative: true
+  hidden: true
 ---
 
 <div style="text-align: center;">

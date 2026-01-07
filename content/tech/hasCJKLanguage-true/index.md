@@ -3,8 +3,9 @@ title: "文章預估閱讀時間異常"
 date: 2026-01-07T11:00:00+08:00
 tags: ["技術"]
 cover:
-	images: "image 1.png"
-	relative: true
+  image: "image 1.png"
+  relative: true
+  hidden: true
 ---
 
 　　我目前 Blog 的架構是 Hugo + Papermod，然後使用 Github Pages 發布。我的 hugo.toml 的「文章預估閱讀時間」（ShowReadingTime = true）一直都有開著，但在剛剛終於發現不對勁，原因是那個時間不管怎樣都是1分鐘，我那篇[八千字的長文](/thinking/magicians/)，居然也給我寫2分鐘。
