@@ -13,8 +13,8 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" 
   xmlns:atom="http://www.w3.org/2005/Atom"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/"> <channel>
     <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne .Title .Site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ .Site.Title }}</description>
@@ -26,15 +26,16 @@
     {{- end }}
     
     {{- range $pages }}
-    {{- /* 1. 處理圖片路徑 */ -}}
-    {{- $img := site.Params.defaultImage | absURL -}}
-    {{- with .Params.images -}}
-      {{- if gt (len .) 0 -}}
-        {{- $img = (index . 0) | absURL -}}
-      {{- end -}}
+    {{- /* 強化圖片抓取邏輯 */ -}}
+    {{- $img := "" -}}
+    {{- if .Params.cover.image -}}
+        {{- $img = .Params.cover.image | absURL -}}
+    {{- else if .Params.images -}}
+        {{- $img = (index .Params.images 0) | absURL -}}
+    {{- else -}}
+        {{- $img = site.Params.defaultImage | absURL -}}
     {{- end -}}
 
-    {{- /* 2. 處理內容，移除腳本並轉義 HTML */ -}}
     {{- $content := .Content | replaceRE `(?s)<script.*?</script>` "" | replaceRE `(?s)<style.*?</style>` "" -}}
     
     <item>
@@ -43,14 +44,28 @@
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
       <guid isPermaLink="true">{{ .Permalink }}</guid>
       
+      {{- /* 關鍵：加入媒體標籤讓 Feedly 強制識別 */ -}}
+      {{- if $img }}
+      <media:content url="{{ $img }}" medium="image" />
+      {{- end }}
+      
       <description>
-        {{- printf "<p><img src=\"%s\" alt=\"%s\" /></p>" $img .Title | html -}}
+        {{- /* 在摘要前面塞一張隱藏圖，雙重保險 */ -}}
+        {{- if $img -}}
+            {{- printf "<img src=\"%s\" alt=\"%s\" style=\"display:none;\" />" $img .Title | html -}}
+        {{- end -}}
         {{- .Summary | html -}}
       </description>
       
+      {{- if .Site.Params.ShowFullTextinRSS }}
       <content:encoded>
+        {{- /* 內文中也確保有圖片 */ -}}
+        {{- if $img -}}
+            {{- printf "<p><img src=\"%s\" alt=\"%s\" /></p>" $img .Title | html -}}
+        {{- end -}}
         {{- $content | html -}}
       </content:encoded>
+      {{- end }}
     </item>
     {{- end }}
   </channel>
