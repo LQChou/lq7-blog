@@ -4,6 +4,7 @@ defaultContentLanguage = "zh-tw"
 title = "LQ7的創作與想像"
 theme = "PaperMod"
 timeZone = "Asia/Taipei"
+hasCJKLanguage = true
 [taxonomies]
   tag = "tags"
   category = "categories"
