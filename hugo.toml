@@ -24,7 +24,7 @@ hasCJKLanguage = true
   ShowCodeCopyButtons = true
   disableSpecial1stPost = true
   ShowFullTextinRSS = true
-  mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event"]
+  mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event","music"]
   defaultImage = "https://lq7.tw/images/default-banner.png"
   
   [params.label]
@@ -57,6 +57,11 @@ hasCJKLanguage = true
     name = "寫作"
     url = "/writing/"
     weight = 20
+	
+  [[menu.main]]
+    name = "音樂"
+    url = "/music/"
+    weight = 25
 
   [[menu.main]]
     name = "閱讀"
