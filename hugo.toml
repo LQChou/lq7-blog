@@ -24,6 +24,7 @@ hasCJKLanguage = true
   ShowCodeCopyButtons = true
   disableSpecial1stPost = true
   ShowFullTextinRSS = true
+  ShowWordCount = true
   mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event","music"]
   defaultImage = "https://lq7.tw/images/default-banner.png"
   
