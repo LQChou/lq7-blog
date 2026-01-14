@@ -1,5 +1,5 @@
 ---
-title: "q@lq7.tw（新的 Email來啦！）"
+title: "q@lq7.tw（新的 Email 來啦！）"
 date: 2026-01-15T00:00:00+08:00
 tags: ["技術","心情"]
 cover:
