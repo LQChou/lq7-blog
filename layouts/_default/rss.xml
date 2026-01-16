@@ -14,7 +14,8 @@
 <rss version="2.0" 
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:media="http://search.yahoo.com/mrss/"> <channel>
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
     <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne .Title .Site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ .Site.Title }}</description>
@@ -26,16 +27,23 @@
     {{- end }}
     
     {{- range $pages }}
-    {{- /* 強化圖片抓取邏輯 */ -}}
+    {{- /* 強化圖片抓取邏輯 - 修正 relative 路徑處理 */ -}}
     {{- $img := "" -}}
     {{- if .Params.cover.image -}}
-        {{- $img = .Params.cover.image | absURL -}}
+        {{- $coverImage := .Params.cover.image -}}
+        {{- /* 檢查是否為相對路徑（不以 / 或 http 開頭） */ -}}
+        {{- if and (not (hasPrefix $coverImage "/")) (not (hasPrefix $coverImage "http")) -}}
+            {{- /* 相對路徑：組合文章的 Permalink + 圖片名稱 */ -}}
+            {{- $img = printf "%s%s" .Permalink $coverImage -}}
+        {{- else -}}
+            {{- /* 絕對路徑或完整 URL：直接使用 absURL */ -}}
+            {{- $img = $coverImage | absURL -}}
+        {{- end -}}
     {{- else if .Params.images -}}
         {{- $img = (index .Params.images 0) | absURL -}}
     {{- else -}}
         {{- $img = site.Params.defaultImage | absURL -}}
     {{- end -}}
-
     {{- $content := .Content | replaceRE `(?s)<script.*?</script>` "" | replaceRE `(?s)<style.*?</style>` "" -}}
     
     <item>
@@ -46,7 +54,7 @@
       
       {{- /* 關鍵：加入媒體標籤讓 Feedly 強制識別 */ -}}
       {{- if $img }}
-      <media:content url="{{ $img }}" medium="image" />
+      <media:content url="{{ $img }}" medium="image"/>
       {{- end }}
       
       <description>
