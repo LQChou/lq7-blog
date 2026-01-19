@@ -1,6 +1,7 @@
 ---
 title: "我的 AI 使用手則"
 date: 2026-01-19T21:30:00+08:00
+description: "對於 AI 我甚至想要寫部原創小說來表達自己的想法，但後來小說有更重要(?)的題材要寫，於是就把這系列的文章變成了散文，這是第一篇關於 AI 的系列文章，希望大家會喜歡。"
 tags: ["思考","AI"]
 cover:
   image: "/images/default-banner.png"
