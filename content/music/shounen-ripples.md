@@ -10,9 +10,7 @@ cover:
 > 這是模仿「30天一天一首推曲」，但使用不同的主題以及介紹方式分享我的音樂喜好，從這之中或許也能更認識我這個人。這是本系列的第一首歌——《少年リップルズ》
 > 
 
-<div style="text-align: center;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/kh1Uf88kkMQ" frameborder="0" allowfullscreen></iframe>
-</div>
+{{< youtube kh1Uf88kkMQ 300px >}}
 
 　　
 

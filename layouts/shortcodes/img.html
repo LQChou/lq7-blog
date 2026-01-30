@@ -1,3 +1,7 @@
+{{- $src := .Get 0 -}}
+{{- if not (hasPrefix $src "/") -}}
+  {{- $src = printf "%s%s" .Page.Permalink $src -}}
+{{- end -}}
 <div style="text-align: center;">
-  <img src="{{ .Page.Permalink }}{{ .Get 0 }}" alt="{{ .Get 1 | default "" }}" style="max-width: {{ .Get 2 | default "500px" }}; width: 100%;">
+  <img src="{{ $src }}" alt="{{ .Get 1 | default "" }}" style="max-width: {{ .Get 2 | default "500px" }}; width: 100%;">
 </div>

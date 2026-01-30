@@ -63,4 +63,4 @@ title: ""
 
 ## 感謝
 
-　　感謝願意看到這邊。如有任何感興趣的內容請隨意逛逛，也可以透過 [RSS 訂閱](https://lq7.tw/index.xml) 追蹤本站更新。有任何感想也歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)告訴我，期待收到您的回饋！
+　　感謝願意看到這邊。有任何感想歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)或[寫信給我](mailto:q@lq7.tw)，或在[留言板](/guestbook/)簽個名，期待您的回饋！

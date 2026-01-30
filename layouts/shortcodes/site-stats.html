@@ -1,0 +1,6 @@
+{{- $postCount := len site.RegularPages -}}
+{{- $totalWords := 0 -}}
+{{- range site.RegularPages -}}
+    {{- $totalWords = add $totalWords .WordCount -}}
+{{- end -}}
+本站目前已有 <strong>{{ $postCount }}</strong> 篇文章，共約 <strong>{{ $totalWords }}</strong> 中文字。
