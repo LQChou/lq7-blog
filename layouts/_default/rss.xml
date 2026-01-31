@@ -16,9 +16,9 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
-    <description>Recent content {{ if ne .Title .Site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+    <description>{{ .Site.Params.description | default (printf "Recent content on %s" .Site.Title) }}</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>{{ .Site.LanguageCode }}</language>
     <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
@@ -27,9 +27,9 @@
     {{- end }}
     
     {{- range $pages }}
-    {{- /* 強化圖片抓取邏輯 - 修正 relative 路徑處理 */ -}}
+    {{- /* 強化圖片抓取邏輯 - 加入 hidden 檢查 */ -}}
     {{- $img := "" -}}
-    {{- if .Params.cover.image -}}
+    {{- if and .Params.cover.image (not .Params.cover.hidden) -}}
         {{- $coverImage := .Params.cover.image -}}
         {{- /* 檢查是否為相對路徑（不以 / 或 http 開頭） */ -}}
         {{- if and (not (hasPrefix $coverImage "/")) (not (hasPrefix $coverImage "http")) -}}
@@ -41,7 +41,7 @@
         {{- end -}}
     {{- else if .Params.images -}}
         {{- $img = (index .Params.images 0) | absURL -}}
-    {{- else -}}
+    {{- else if not .Params.cover.hidden -}}
         {{- $img = site.Params.defaultImage | absURL -}}
     {{- end -}}
     {{- $content := .Content | replaceRE `(?s)<script.*?</script>` "" | replaceRE `(?s)<style.*?</style>` "" -}}
