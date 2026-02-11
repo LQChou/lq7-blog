@@ -2,6 +2,9 @@
 title: "《超時空輝耀姬！》心得（本文有雷）"
 date: 2026-02-11T16:50:00+08:00
 tags: ["閱讀","電影","動漫"]
+cover:
+  image: "image.png"
+  hidden: true
 ---
 
 ### 序
