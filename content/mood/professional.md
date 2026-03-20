@@ -19,10 +19,10 @@ cover:
 
 　　一開始學攝影時，我也在猶豫要不要用 Lightroom，還是用像 darktable 這種開源軟體上掙扎過。理論上一個用了 LR 許久的專業攝影師，就算換了軟體工具，也很快能上手並做出一樣的效果。但對一個從零開始，連明度、飽和度、色相、調色曲線、白色和高光到底差在哪的新手而言，我得從頭找資源一個一個學習，甚至根本分不清 lightroom 和 darktable 裡面類似功能的具體差異，更枉論市面上無論免費還付費教學，lightroom 的課程壓倒性得比其他開源軟體多上百倍。
 
-　　基於以上，我毫不猶豫投入了萬惡（？）的 Adobe 懷抱中。
+　　基於以上，我毫不猶豫投入了協惡（？）的 Adobe 懷抱中。
 
 　　因此，先不論 Wiwi 引用的[原文](https://www.geedea.pro/essays/lost-in-gui/)「專業的 UML 繪圖工具」到底是什麼[^1]（我認為用 Visio 也很專業），但如果還在新手的學習階段，那工具除了專業外，也得符合自身舒適的學習需求。例如以前短暫學電繪時，老師用的就是 Photoshop，這時候如果硬要去用其他繪圖軟體，我想只是找自己麻煩而已。
 
-　　唉，所以像 [Shuo-jen](https://shuojen.com/blog/2026/03/20/camera/) 這樣[有經驗的攝影師](https://shuojen.com/photography)，無論用 XT20 還是 GM1 都能拍出如此好看的照片。不說了，假日我要去面交新鏡頭了，每次都拍糊一定是對焦馬達太爛的關係 。･ﾟ･(つд`ﾟ)･ﾟ･
+　　唉，所以像 [Shuo-jen](https://shuojen.com/blog/2026/03/20/camera/) 這樣[有經驗的攝影師](https://shuojen.com/photography)，無論用 XT20 還是 GM1 都能拍出如此好看的照片。不說了，假日要去面交新鏡頭了，拍得不好一定是鏡頭太少的關係 ᕕ ( ᐛ ) ᕗ
 
 [^1]:[〈看起來不專業〉](https://wiwi.blog/blog/looking-unprofessional)By Wiwi
