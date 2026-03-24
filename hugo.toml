@@ -11,6 +11,8 @@ hasCJKLanguage = true
   series = "series"
 [markup.goldmark.renderer]
   unsafe = true
+[markup.goldmark.renderHooks.image]
+  enableDefault = true
 [pagination]
   pagerSize = 10
 
