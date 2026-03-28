@@ -9,7 +9,7 @@ cover:
 
 　　嗯，不是那本書（雖然可能有點關係）XD。
 
-　　上次在[〈Actions speak louder than words〉](/actions-speak-louder-than-words/)文章中提到「街拍算不算偷拍」的問題，在星期三的時候剛好有機會，立刻請教了有長年經驗也喜愛街拍的職業攝影師。結果，他毫不猶豫地說了這樣的話：
+　　上次在[〈Actions speak louder than words〉](/thinking/actions-speak-louder-than-words/)文章中提到「街拍算不算偷拍」的問題，在星期三的時候剛好有機會，立刻請教了有長年經驗也喜愛街拍的職業攝影師。結果，他毫不猶豫地說了這樣的話：
 
 　　「怕，就不要拍；要拍，就不要怕。」
 
