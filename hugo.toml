@@ -12,7 +12,7 @@ hasCJKLanguage = true
 [markup.goldmark.renderer]
   unsafe = true
 [markup.goldmark.renderHooks.image]
-  enableDefault = true
+  useEmbedded = 'fallback'
 [pagination]
   pagerSize = 10
 
