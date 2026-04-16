@@ -85,5 +85,5 @@ cover:
 
 　　謝謝各位的閱讀，我們四月 BlogBlog 同樂會文章再見（咦）
 
-[^1]: 出自 [Elvis Lin 這篇 Blog](https://vocus.cc/article/68c399dffd89780001566558)，我將它翻譯得更白話一點
+[^1]: 出自 [Elvis Lin 這篇同樣在介紹斯多葛哲學的文章](https://vocus.cc/article/68c399dffd89780001566558)，我將它翻譯得更白話一點
 [^2]: 飛機是由美國的萊特兄弟（Orville and Wilbur Wright）於1903年12月17日發明的。他們在北卡羅來納州的小鷹鎮（Kitty Hawk）成功試飛了第一架配備動力、可受控的穩定飛行器「飛行者一號」。（維基百科）
