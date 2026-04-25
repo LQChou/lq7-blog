@@ -1,6 +1,6 @@
 ---
 title: "專業人士的前與後"
-date: 2026-04-25T12:00:00+08:00
+date: 2026-04-25T13:10:00+08:00
 tags: ["思考","同樂會"]
 cover:
   image: "/images/default-banner.png"
