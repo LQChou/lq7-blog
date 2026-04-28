@@ -9,13 +9,50 @@
 
   {{- $pages := site.RegularPages.ByDate.Reverse -}}
 
-  <div class="archive">
+  {{- /* 收集所有 tag 並計算數量 */ -}}
+  {{- $tagCounts := dict -}}
+  {{- range $pages -}}
+    {{- range .Params.tags -}}
+      {{- $key := . | string -}}
+      {{- $current := index $tagCounts $key | default 0 -}}
+      {{- $tagCounts = merge $tagCounts (dict $key (add $current 1)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* 依文章數遞減排序 */ -}}
+  {{- $sortedTags := slice -}}
+  {{- range $tag, $count := $tagCounts -}}
+    {{- $sortedTags = $sortedTags | append (dict "name" $tag "count" $count) -}}
+  {{- end -}}
+  {{- $sortedTags = sort $sortedTags "count" "desc" -}}
+
+  {{- if $sortedTags -}}
+  <div class="tag-filter">
+    <div class="tag-filter-bar">
+      <span class="tag-filter-label">標籤篩選</span>
+      <span class="tag-filter-mode">
+        <label><input type="radio" name="tag-mode" value="or" checked>任一 (OR)</label>
+        <label><input type="radio" name="tag-mode" value="and">全部 (AND)</label>
+      </span>
+      <button type="button" class="tag-filter-clear" id="tag-filter-clear">清除</button>
+    </div>
+    <div class="tag-filter-buttons">
+      {{- range $sortedTags }}
+      <button type="button" class="tag-filter-btn" data-tag="{{ .name }}">{{ .name }}<span class="tag-filter-count">{{ .count }}</span></button>
+      {{- end }}
+    </div>
+    <div class="tag-filter-status">
+      顯示 <span id="tag-filter-visible">{{ len $pages }}</span> / {{ len $pages }} 篇
+    </div>
+  </div>
+  {{- end -}}
+
+  <div class="archive" id="archive">
     {{- range $pages.GroupByDate "2006" -}}
-      <h3 class="archive-year">{{ .Key }}</h3>
+      <h3 class="archive-year" data-year="{{ .Key }}">{{ .Key }}</h3>
 
       <div class="archive-list">
         {{- range .Pages -}}
-          {{- /* 優化摘要抓取：優先使用設定的描述，最後才用純文字擷取 */ -}}
           {{- $excerpt := "" -}}
           {{- if .Description -}}
             {{- $excerpt = .Description -}}
@@ -25,7 +62,7 @@
             {{- $excerpt = .Plain | truncate 60 -}}
           {{- end -}}
 
-          <div class="archive-item">
+          <div class="archive-item" data-tags="{{ delimit .Params.tags `,` }}">
             <span class="archive-date">{{ .Date.Format "01/02" }}</span>
 
             <a class="archive-title" href="{{ .RelPermalink }}">
@@ -40,5 +77,188 @@
       </div>
     {{- end -}}
   </div>
+
+  <div class="archive-empty" id="archive-empty" style="display:none;">
+    沒有符合所選標籤的文章。
+  </div>
 </main>
+
+<style>
+.tag-filter {
+  margin: 1.2rem 0 2rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.tag-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+}
+.tag-filter-label {
+  font-weight: 600;
+  color: var(--primary);
+}
+.tag-filter-mode label {
+  margin-right: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: var(--secondary);
+}
+.tag-filter-mode input {
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+.tag-filter-clear {
+  margin-left: auto;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.82rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--theme);
+  color: var(--secondary);
+  cursor: pointer;
+}
+.tag-filter-clear:hover {
+  color: var(--primary);
+}
+.tag-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.tag-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.83rem;
+  line-height: 1.4;
+  color: var(--secondary);
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tag-filter-btn:hover {
+  color: var(--primary);
+  border-color: var(--secondary);
+}
+.tag-filter-btn.active {
+  color: var(--theme);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.tag-filter-btn.active .tag-filter-count {
+  color: var(--theme);
+  opacity: 0.85;
+}
+.tag-filter-count {
+  font-size: 0.76rem;
+  opacity: 0.65;
+}
+.tag-filter-status {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  color: var(--secondary);
+}
+.archive-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--secondary);
+}
+</style>
+
+<script>
+(function () {
+  const buttons = document.querySelectorAll('.tag-filter-btn');
+  if (!buttons.length) return;
+
+  const items = document.querySelectorAll('#archive .archive-item');
+  const yearGroups = document.querySelectorAll('#archive .archive-year');
+  const yearLists = document.querySelectorAll('#archive .archive-list');
+  const visibleEl = document.getElementById('tag-filter-visible');
+  const emptyEl = document.getElementById('archive-empty');
+  const archiveEl = document.getElementById('archive');
+  const clearBtn = document.getElementById('tag-filter-clear');
+  const modeInputs = document.querySelectorAll('input[name="tag-mode"]');
+
+  const selected = new Set();
+
+  function getMode() {
+    const checked = document.querySelector('input[name="tag-mode"]:checked');
+    return checked ? checked.value : 'or';
+  }
+
+  function applyFilter() {
+    const mode = getMode();
+    let visible = 0;
+
+    items.forEach(function (item) {
+      const tagsAttr = item.getAttribute('data-tags') || '';
+      const tags = tagsAttr ? tagsAttr.split(',').map(function (t) { return t.trim(); }).filter(Boolean) : [];
+
+      let show;
+      if (selected.size === 0) {
+        show = true;
+      } else if (mode === 'and') {
+        show = Array.from(selected).every(function (t) { return tags.indexOf(t) !== -1; });
+      } else {
+        show = Array.from(selected).some(function (t) { return tags.indexOf(t) !== -1; });
+      }
+
+      item.style.display = show ? '' : 'none';
+      if (show) visible += 1;
+    });
+
+    // 隱藏沒有任何可見文章的年份分組
+    yearLists.forEach(function (list, idx) {
+      const anyVisible = Array.from(list.querySelectorAll('.archive-item')).some(function (it) {
+        return it.style.display !== 'none';
+      });
+      list.style.display = anyVisible ? '' : 'none';
+      const yearHeader = yearGroups[idx];
+      if (yearHeader) yearHeader.style.display = anyVisible ? '' : 'none';
+    });
+
+    visibleEl.textContent = visible;
+    if (visible === 0) {
+      emptyEl.style.display = '';
+      archiveEl.style.display = 'none';
+    } else {
+      emptyEl.style.display = 'none';
+      archiveEl.style.display = '';
+    }
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const tag = btn.getAttribute('data-tag');
+      if (selected.has(tag)) {
+        selected.delete(tag);
+        btn.classList.remove('active');
+      } else {
+        selected.add(tag);
+        btn.classList.add('active');
+      }
+      applyFilter();
+    });
+  });
+
+  modeInputs.forEach(function (input) {
+    input.addEventListener('change', applyFilter);
+  });
+
+  clearBtn.addEventListener('click', function () {
+    selected.clear();
+    buttons.forEach(function (btn) { btn.classList.remove('active'); });
+    applyFilter();
+  });
+})();
+</script>
 {{ end }}
