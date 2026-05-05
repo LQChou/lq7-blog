@@ -51,6 +51,8 @@ cover:
 
 　　最近 JN 做了個[海巡工具](https://blog.giveanornot.com/now/20260503/)，超級好用。好用的點在除了可以稽查自己的網站外，還能稽查別人的！因此就可以知道自己常看的那幾個 Blog 有沒有相同的粉絲，~~等於是我稽查你的稽查~~。於是突然想到是否可以寫篇完美的主題文章 Link 到所有的格友然後就當成部落卷之類的（本篇文章打完後才發現有這樣的味道，但這計劃似乎比想像中的麻煩因此作罷）。
 
-　　（2026/05/05 17:13 更：經[粉絲指正](https://lq7.tw/guestbook)是「有岡大貴」，我打成「有岡貴大」有夠失禮立刻更正 QQ）
+　　（17:13 更：經[粉絲指正](https://lq7.tw/guestbook)是「有岡大貴」，我打成「有岡貴大」有夠失禮~~而且明明海報上就有名字太白癡ㄌ~~ QQ）
+
+![image.jpg](photo_001.jpg)
 
 [^1]: [帶著高松燈去接見總統](https://blog.wei-lee.me/posts/random-thoughts/2026/04/tomorin-goes-to-presidential-office/)的大神，然後也[有去 FF46](https://travlog.wei-lee.me/posts/review/2026/02/ff-46/) 還同樣拿了幸運星的 DM 以及我的名片，之前一直沒有發現是因為本格友都用另一個 Blog 參加 Blogblog 同樂會~~真是心機~~。
