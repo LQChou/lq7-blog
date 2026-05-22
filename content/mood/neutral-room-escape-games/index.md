@@ -65,6 +65,10 @@ cover:
 
 　　得知 Neutral 還有在更新，真的是本周最讓人開心的事情了。
 
+### 2026/05/23 更
+
+　　[「Sign」](https://neutralxe.net/room/sign/)我也在星期五晚上破關了！這個遊戲時程短很多，不到一小時！
+
 [^1]: [密室逃脫模擬器](https://store.steampowered.com/app/1435790/_/)，其實還不錯玩，官方的作品也有一定的水準。最近[出了二代](https://store.steampowered.com/app/2879840/2/)，一直想找朋友玩但太忙了（？）就遲遲沒有購買。
 
 [^2]: 以前的[兩篇文章](/reading/)有提過「古典推理」，有興趣可以來[這裡](/reading/in-spectre/)和[這裡](/reading/the-poisoned-chocolates-case/)看看。
