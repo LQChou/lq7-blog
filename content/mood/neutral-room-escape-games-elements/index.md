@@ -11,6 +11,8 @@ cover:
 
 ![image.png](image.png)
 
+　　[ELEMENTS by Neutral 遊玩連結](https://archive.org/details/ele-2_202503)
+
 　　自從得知 Neutral 已下架的曠世巨作 [ELEMENTS 還有得玩](/mood/privacy-and-mementos/#後記20260526-1915-更)的時候，我就決定找個機會回味一下。
 
 　　壞消息是，結果除了房間大抵上還有點印象外，謎題全忘了。
