@@ -3,7 +3,7 @@ title: "關於「鴉」的兩三事"
 date: 2026-06-23T08:50:00+08:00
 tags: ["生活","動物","同樂會"]
 cover:
-  image: "image_0.jpg"
+  image: "/images/default-banner.png"
   hidden: true
 ---
 
