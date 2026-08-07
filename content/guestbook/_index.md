@@ -14,7 +14,8 @@ layout: "page"
       <input type="text" id="name" placeholder="暱稱" required>
       <input type="url" id="website" placeholder="網站（選填）">
     </div>
-    <textarea id="message" placeholder="留言內容" rows="4" required></textarea>
+    <textarea id="message" placeholder="留言內容（支援 Markdown）" rows="4" required></textarea>
+    <div class="form-help">支援 Markdown；直接換行也會保留。</div>
     <button type="submit" id="submit-btn">送出留言</button>
   </form>
   <div id="form-status"></div>
@@ -68,7 +69,13 @@ layout: "page"
 
 #guestbook textarea {
   resize: vertical;
+  margin-bottom: 0.35rem;
+}
+
+.form-help {
   margin-bottom: 1rem;
+  color: var(--secondary);
+  font-size: 0.85rem;
 }
 
 #submit-btn {
@@ -142,6 +149,26 @@ layout: "page"
   line-height: 1.6;
 }
 
+.comment-message,
+.reply-content {
+  overflow-wrap: anywhere;
+}
+
+.comment-message > :first-child,
+.reply-content > :first-child {
+  margin-top: 0;
+}
+
+.comment-message > :last-child,
+.reply-content > :last-child {
+  margin-bottom: 0;
+}
+
+.comment-message pre,
+.reply-content pre {
+  overflow-x: auto;
+}
+
 .comment-reply {
   margin-top: 1rem;
   padding-top: 1rem;
@@ -162,6 +189,8 @@ layout: "page"
   color: var(--secondary);
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/marked@18.0.7/lib/marked.umd.js" integrity="sha384-7njNzKcJUBdezPGfqUrIFizi2QkXJH0M6wF3o1h9GE/nce6X4YdecMwh31B19yTi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.13/dist/purify.min.js" integrity="sha384-ZuC+DIACqSIZTsp+7YF57cR5Y+6qXa7YFbEKdA/EHA/R0T+41dtorqucYl71Zp+t" crossorigin="anonymous"></script>
 
 <script>
 const GIST_URL = 'https://api.github.com/gists/797fb5323495c38ab414b75140c2ce65';
@@ -212,23 +241,27 @@ async function loadComments() {
       return;
     }
     
-    container.innerHTML = comments.map(c => `
-      <div class="comment">
-        <div class="comment-header">
-          <span class="comment-name">
-            ${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${escapeHtml(c.name)}</a>` : escapeHtml(c.name)}
-          </span>
-          <span class="comment-time">${c.timestamp}</span>
-        </div>
-        <div class="comment-message">${escapeHtml(c.message)}</div>
-        ${c.reply ? `
-          <div class="comment-reply">
-            <div class="reply-header">${c.replyBy || '站長'} 回覆於 ${c.replyTime || ''}</div>
-            <div class="reply-content">${escapeHtml(c.reply)}</div>
+    container.innerHTML = comments.map(c => {
+      const websiteUrl = sanitizeWebsiteUrl(c.website);
+
+      return `
+        <div class="comment">
+          <div class="comment-header">
+            <span class="comment-name">
+              ${websiteUrl ? `<a href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer nofollow">${escapeHtml(c.name)}</a>` : escapeHtml(c.name)}
+            </span>
+            <span class="comment-time">${escapeHtml(c.timestamp)}</span>
           </div>
-        ` : ''}
-      </div>
-    `).join('');
+          <div class="comment-message">${renderMarkdown(c.message)}</div>
+          ${c.reply ? `
+            <div class="comment-reply">
+              <div class="reply-header">${escapeHtml(c.replyBy || '站長')} 回覆於 ${escapeHtml(c.replyTime || '')}</div>
+              <div class="reply-content">${renderMarkdown(c.reply)}</div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
   } catch (err) {
     loading.textContent = '載入失敗，請重新整理頁面';
     console.error(err);
@@ -271,8 +304,54 @@ document.getElementById('guestbook-form').addEventListener('submit', async (e) =
 });
 
 function escapeHtml(str) {
-  if (!str) return '';
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function sanitizeWebsiteUrl(value) {
+  if (!value) return '';
+
+  try {
+    const url = new URL(String(value));
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch {
+    return '';
+  }
+}
+
+function renderMarkdown(value) {
+  const text = value === null || value === undefined ? '' : String(value);
+
+  // CDN 暫時無法使用時，仍安全顯示純文字並保留換行。
+  if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
+    return escapeHtml(text).replace(/\r\n?|\n/g, '<br>');
+  }
+
+  try {
+    const html = marked.parse(text, {
+      gfm: true,
+      breaks: true
+    });
+    const cleanHtml = DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'del', 'a', 'blockquote', 'ul', 'ol', 'li', 'code', 'pre', 'hr'],
+      ALLOWED_ATTR: ['href', 'title']
+    });
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = cleanHtml;
+    wrapper.querySelectorAll('a[href]').forEach(link => {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer nofollow ugc';
+    });
+    return wrapper.innerHTML;
+  } catch (err) {
+    console.error('Markdown render failed:', err);
+    return escapeHtml(text).replace(/\r\n?|\n/g, '<br>');
+  }
 }
 
 loadComments();
