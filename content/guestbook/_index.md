@@ -14,8 +14,8 @@ layout: "page"
       <input type="text" id="name" placeholder="暱稱" required>
       <input type="url" id="website" placeholder="網站（選填）">
     </div>
-    <textarea id="message" placeholder="留言內容（支援 Markdown）" rows="4" required></textarea>
-    <div class="form-help">支援 Markdown；直接換行也會保留。</div>
+    <textarea id="message" placeholder="留言內容（支援部分 Markdown 語法）" rows="4" required></textarea>
+    <div class="form-help">支援部分（連 LQ7 本人都不確定有哪些）的 Markdown 語法。</div>
     <button type="submit" id="submit-btn">送出留言</button>
   </form>
   <div id="form-status"></div>
