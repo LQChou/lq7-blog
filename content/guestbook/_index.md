@@ -14,8 +14,8 @@ layout: "page"
       <input type="text" id="name" placeholder="暱稱" required>
       <input type="url" id="website" placeholder="網站（選填）">
     </div>
-    <textarea id="message" placeholder="留言內容（支援 Markdown）" rows="4" required></textarea>
-    <div class="form-help">支援 Markdown；直接換行也會保留。</div>
+    <textarea id="message" placeholder="留言內容（支援部分 Markdown 語法）" rows="4" required></textarea>
+    <div class="form-help">支援部分（連 LQ7 本人都不確定有哪些）的 Markdown 語法。</div>
     <button type="submit" id="submit-btn">送出留言</button>
   </form>
   <div id="form-status"></div>
@@ -195,15 +195,110 @@ layout: "page"
 <script>
 const GIST_URL = 'https://api.github.com/gists/797fb5323495c38ab414b75140c2ce65';
 const API_URL = 'https://script.google.com/macros/s/AKfycbweWPet3jsnEdnhrQ5yfRaJN2FkSDOO2pOKrC0WlPQ3ZTJI3qFMaWQzE05d32dIFO6R/exec';
+const COMMENTS_CACHE_KEY = 'lq7-guestbook-comments-v1';
+const COMMENTS_CACHE_FRESH_MS = 5 * 60 * 1000;
+const COMMENTS_CACHE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+const GIST_FETCH_TIMEOUT_MS = 15 * 1000;
+const GIST_FETCH_ATTEMPTS = 2;
+
+function readCommentsCache() {
+  try {
+    const cached = JSON.parse(localStorage.getItem(COMMENTS_CACHE_KEY));
+    if (!cached || !Array.isArray(cached.data) || !Number.isFinite(cached.savedAt)) {
+      localStorage.removeItem(COMMENTS_CACHE_KEY);
+      return null;
+    }
+
+    const age = Date.now() - cached.savedAt;
+    if (age > COMMENTS_CACHE_MAX_AGE_MS) {
+      localStorage.removeItem(COMMENTS_CACHE_KEY);
+      return null;
+    }
+
+    return cached;
+  } catch {
+    return null;
+  }
+}
+
+function writeCommentsCache(data) {
+  try {
+    localStorage.setItem(COMMENTS_CACHE_KEY, JSON.stringify({
+      savedAt: Date.now(),
+      data
+    }));
+  } catch {
+    // localStorage unavailable or full; comments can still be loaded normally.
+  }
+}
+
+async function fetchGuestbookData() {
+  let lastError;
+
+  for (let attempt = 0; attempt < GIST_FETCH_ATTEMPTS; attempt += 1) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), GIST_FETCH_TIMEOUT_MS);
+
+    try {
+      const res = await fetch(GIST_URL, {
+        cache: 'default',
+        headers: { Accept: 'application/vnd.github+json' },
+        signal: controller.signal
+      });
+
+      if (!res.ok) {
+        throw new Error(`GitHub Gist API returned HTTP ${res.status}`);
+      }
+
+      const gist = await res.json();
+      const file = gist.files && gist.files['guestbook.json'];
+
+      if (!file || typeof file.content !== 'string') {
+        throw new Error('guestbook.json is missing from the Gist response');
+      }
+
+      const data = JSON.parse(file.content);
+      if (!Array.isArray(data)) {
+        throw new Error('guestbook.json must contain an array');
+      }
+
+      return data;
+    } catch (err) {
+      lastError = err;
+      if (attempt + 1 < GIST_FETCH_ATTEMPTS) {
+        await new Promise(resolve => setTimeout(resolve, 750));
+      }
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  throw lastError;
+}
 
 async function loadComments() {
   const loading = document.getElementById('comments-loading');
   const container = document.getElementById('comments');
   
   try {
-    const res = await fetch(`${GIST_URL}?t=${new Date().getTime()}`);
-    const gist = await res.json();
-    const rawData = JSON.parse(gist.files['guestbook.json'].content);
+    const cached = readCommentsCache();
+    const cacheIsFresh = cached && Date.now() - cached.savedAt < COMMENTS_CACHE_FRESH_MS;
+    let rawData;
+    let usingCachedFallback = false;
+
+    if (cacheIsFresh) {
+      rawData = cached.data;
+    } else {
+      try {
+        rawData = await fetchGuestbookData();
+        writeCommentsCache(rawData);
+      } catch (err) {
+        if (!cached) throw err;
+        rawData = cached.data;
+        usingCachedFallback = true;
+        console.warn('GitHub Gist unavailable; using cached comments.', err);
+      }
+    }
     
     // 更加穩定的日期解析邏輯
     const parseFlexibleDate = (str) => {
@@ -234,7 +329,11 @@ async function loadComments() {
       return parseFlexibleDate(b.timestamp) - parseFlexibleDate(a.timestamp);
     });
     
-    loading.style.display = 'none';
+    if (usingCachedFallback) {
+      loading.textContent = 'GitHub 暫時無回應，目前顯示上次載入的留言。';
+    } else {
+      loading.style.display = 'none';
+    }
     
     if (comments.length === 0) {
       container.innerHTML = '<p style="color: var(--secondary);">還沒有留言，來當第一個吧！</p>';
