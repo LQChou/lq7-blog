@@ -1,0 +1,44 @@
+{{- define "main" }}
+<!-- 隱藏此頁面列表預覽中的所有封面圖、YouTube 影片與內嵌元件 -->
+<style>
+  .post-entry .entry-cover,
+  .post-entry .post-thumbnail,
+  .post-entry img,
+  .post-entry iframe,
+  .post-entry .video-container,
+  .post-entry div[style*="position: relative"] {
+    display: none !important;
+  }
+</style>
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+
+<!-- 渲染 _index.md 的說明文字 -->
+{{- if .Content }}
+<div class="post-content">
+  {{ .Content }}
+</div>
+{{- end }}
+
+{{- $sections := slice "mood" "music" "photo" "reading" "event" "writing" }}
+{{- $pages := where .Site.RegularPages "Section" "in" $sections }}
+
+<div class="post-feed">
+  {{- range $pages }}
+  <article class="post-entry">
+    <header class="entry-header">
+      <h2>{{ .Title }}</h2>
+    </header>
+    <div class="entry-content">
+      <p>{{ .Summary }}</p>
+    </div>
+    <footer class="entry-footer">
+      {{- partial "post_meta.html" . -}}
+    </footer>
+    <a class="entry-link" aria-label="post link to {{ .Title }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{- end }}
+</div>
+{{- end }}

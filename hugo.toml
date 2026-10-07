@@ -1,7 +1,7 @@
 baseURL = "https://lq7.tw/"
 languageCode = "zh-tw"
 defaultContentLanguage = "zh-tw"
-title = "LQ7的創作與想像"
+title = "LQ7的思考與閒聊"
 theme = "PaperMod"
 timeZone = "Asia/Taipei"
 hasCJKLanguage = true
@@ -14,7 +14,7 @@ hasCJKLanguage = true
 [markup.goldmark.renderHooks.image]
   useEmbedded = 'fallback'
 [pagination]
-  pagerSize = 10
+  pagerSize = 50
 
 [params]
   author = "LQ7"
@@ -28,11 +28,11 @@ hasCJKLanguage = true
   ShowFullTextinRSS = true
   ShowWordCount = true
   mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event","music","photo"]
-  defaultImage = "https://lq7.tw/images/default-banner.png"
+  defaultImage = "https://lq7.tw/images/anosoyo.png"
   math = true
   
   [params.label]
-  text = "LQ7的創作與想像"
+  text = "LQ7的思考與閒聊"
   icon = "/images/avatar.png"
   iconHeight = 35
 
@@ -51,51 +51,23 @@ hasCJKLanguage = true
     name = "小說"
     url = "/fanfic/"
     weight = 10
-  [[menu.main]]
-    name = "攝影"
-    url = "/photo/"
-    weight = 15
-
-  [[menu.main]]
-    name = "寫作"
-    url = "/writing/"
-    weight = 20
 	
   [[menu.main]]
-    name = "音樂"
-    url = "/music/"
-    weight = 25
-
-  [[menu.main]]
-    name = "閱讀"
-    url = "/reading/"
-    weight = 30
-
+    name = "閒聊"
+    url = "/chat/"
+    weight = 15
+	
   [[menu.main]]
     name = "思考"
     url = "/thinking/"
-    weight = 40
-
-  [[menu.main]]
-    name = "心情"
-    url = "/mood/"
-    weight = 50
+    weight = 20
 	
   [[menu.main]]
-    name = "活動"
-    url = "/event/"
-    weight = 53
-  [[menu.main]]
-    name = "技術"
-    url = "/tech/"
-    weight = 54
-	
-  [[menu.main]]
-    name = "留言板"
+    name = "留言"
     url = "/guestbook/"
     weight = 55
 
   [[menu.main]]
-    name = "關於我"
+    name = "關於"
     url = "/about/"
     weight = 60
