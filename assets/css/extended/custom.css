@@ -1,7 +1,27 @@
-/* Blockquote 樣式 */
+/* 光亮模式：道林紙底色 */
+:root:not([data-theme="dark"]) {
+  --theme: #f7f3e8;
+  --entry: #fffcf5;
+  --border: #e6dece;
+  --blockquote-bg: #eee8dc;
+  --blockquote-border: #b5a68d;
+}
+
+:root[data-theme="dark"] {
+  --blockquote-bg: #2a2a2a;
+  --blockquote-border: #555;
+}
+
+/* PaperMod 的首頁與列表原本使用 --code-bg，改為跟隨頁面底色。 */
+.list {
+  background: var(--theme);
+}
+
+/* 引用區塊隨主題切換，段落與清單統一使用內文顏色。 */
 .post-content blockquote {
-  background: #2a2a2a;
-  border-left: 4px solid #555;
+  background: var(--blockquote-bg);
+  border-inline-start: 4px solid var(--blockquote-border);
+  color: var(--content);
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 4px;
@@ -9,7 +29,7 @@
 
 .post-content blockquote p {
   margin: 0;
-  color: #ccc;
+  color: inherit;
 }
 
 /* 調整文章內的封面圖大小與對齊 */
