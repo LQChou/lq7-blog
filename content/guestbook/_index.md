@@ -4,7 +4,7 @@ date: 2026-01-03
 layout: "page"
 ---
 
-如果想私下對我說些什麼，歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)或[寫信給我](mailto:lpseven@gmail.com)
+如果想私下對我說些什麼，歡迎使用[意見表單](https://forms.gle/y8tJ5kNVEyk9V1BN7)或[寫信給我](mailto:q@lq7.tw)
 
 但我完全能理解留言顯示在別人網站上的樂趣，所以弄了一個留言板，歡迎隨意留言（不需帳號登入，需審核），也歡迎對任何文章發表感想喔！
 
