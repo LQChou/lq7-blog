@@ -3,7 +3,7 @@ title: "研究所考試"
 date: 2026-11-05T15:05:00+08:00
 tags: ["閒聊","生活","考試"]
 cover:
-  image: "/images/default-banner.png"
+  image: "/images/anosoyo.png"
   hidden: true
 ---
 
