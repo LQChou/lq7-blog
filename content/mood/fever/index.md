@@ -1,7 +1,7 @@
 ---
 title: "39.5"
 date: 2026-09-03T00:20:00+08:00
-tags: ["生活","心情","閒聊"]
+tags: ["生活","心情","閒聊","同樂會"]
 cover:
   image: "image_0.jpg"
   hidden: true
