@@ -27,7 +27,7 @@ hasCJKLanguage = true
   disableSpecial1stPost = true
   ShowFullTextinRSS = true
   ShowWordCount = true
-  mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event","music","photo"]
+  mainSections = ["fanfic", "writing", "reading", "thinking", "mood","tech","event","music","photo","chat"]
   defaultImage = "https://lq7.tw/images/anosoyo.png"
   math = true
   
